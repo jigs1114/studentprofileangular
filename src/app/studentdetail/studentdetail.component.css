@@ -1,0 +1,344 @@
+.content-wrapper,
+.main-footer {
+  -webkit-transition: -webkit-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+  -moz-transition: -moz-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+  -o-transition: -o-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+  /* margin-left: 230px; */
+  z-index: 820;
+}
+.layout-top-nav .content-wrapper,
+.layout-top-nav .main-footer {
+  margin-left: 0;
+}
+@media (max-width: 767px) {
+    .content-wrapper,
+    .main-footer {
+      margin-left: 0;
+    }
+  }
+  @media (min-width: 768px) {
+    .sidebar-collapse .content-wrapper,
+    .sidebar-collapse .main-footer {
+      margin-left: 0;
+    }
+  }
+  @media (max-width: 767px) {
+    .sidebar-open .content-wrapper,
+    .sidebar-open .main-footer {
+      -webkit-transform: translate(230px, 0);
+      -ms-transform: translate(230px, 0);
+      -o-transform: translate(230px, 0);
+      transform: translate(230px, 0);
+    }
+  }
+  .content-wrapper {
+    min-height: 100%;
+    background-color: #ecf0f5;
+    z-index: 800;
+  }
+  .fixed .content-wrapper,
+.fixed .right-side {
+  padding-top: 50px;
+}
+@media (max-width: 767px) {
+  .fixed .content-wrapper,
+  .fixed .right-side {
+    padding-top: 100px;
+  }
+}
+@media (min-width: 768px) {
+    .sidebar-mini.sidebar-collapse .content-wrapper,
+    .sidebar-mini.sidebar-collapse .right-side,
+    .sidebar-mini.sidebar-collapse .main-footer {
+      margin-left: 50px !important;
+      z-index: 840;
+    }
+}
+.table-bordered {
+    border: 1px solid #f4f4f4;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+}
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal {
+    background: rgba(0,0,0,0.3);
+}
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+.e-dlg-center-center {
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.e-dlg-container {
+    -webkit-box-align: start;
+    align-items: flex-start;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.e-popup.e-popup-open.e-dialog {
+    display: -webkit-inline-box;
+    display: inline-flex;
+}
+.e-dialog {
+    background-color: #fff;
+    box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+}
+.e-dialog {
+    max-height: 98%;
+    max-width: 100%;
+    min-width: 240px;
+}
+.e-dialog {
+    border: none;
+    border-radius: 2px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    width: 100%;
+}
+.e-popup {
+    height: auto;
+    position: absolute;
+    width: auto;
+    z-index: 1000;
+}
+.e-control, .e-control [class^='e-'], .e-control [class*=' e-'] {
+    box-sizing: border-box;
+}
+.e-control, .e-css {
+    font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+    font-size: 12px;
+    font-weight: normal;
+}
+.e-dialog {
+    outline: 0 none;
+}
+.e-schedule-dialog .e-dlg-header-content {
+    padding-bottom: 8px;
+}
+.e-dialog .e-dlg-header-content {
+    border-bottom: none;
+    padding: 18px;
+}
+.e-dialog .e-dlg-header-content {
+    border-radius: 1px 1px 0 0;
+    line-height: 30px;
+}
+.e-dialog .e-dlg-header-content .e-btn.e-dlg-closeicon-btn {
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 50%;
+    bottom: 0;
+    float: right;
+    height: 30px;
+    left: 6px;
+    position: relative;
+    width: 30px;
+}
+.e-btn.e-flat, .e-css.e-btn.e-flat {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: rgba(0, 0, 0, 0.87);
+}
+.e-btn.e-flat, .e-css.e-btn.e-flat {
+    border: 1px solid;
+}
+.e-btn.e-icon-btn, .e-css.e-btn.e-icon-btn {
+    padding: 6px 7px 4px;
+}
+.e-control, .e-control [class^='e-'], .e-control [class*=' e-'] {
+    box-sizing: border-box;
+}
+.e-control, .e-control [class^='e-'], .e-control [class*=' e-'] {
+    box-sizing: border-box;
+}
+.e-btn, .e-css.e-btn {
+    -webkit-tap-highlight-color: transparent;
+    background-color: #fafafa;
+    border-color: transparent;
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    color: rgba(0, 0, 0, 0.87);
+    -webkit-transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.e-btn, .e-css.e-btn {
+    -webkit-font-smoothing: antialiased;
+    border: 1px solid;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-box-pack: center;
+    justify-content: center;
+    line-height: 1.143em;
+    outline: none;
+    padding: 6px 12px 4px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap ;
+}
+.e-btn, .e-btn .e-btn-span, .e-btn.e-tbtn .e-btn-span, .e-btn.e-split-btn .e-btn-span {
+    vertical-align: middle;
+    border-spacing: 0;
+}
+.e-btn {
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    border: medium none;
+    box-shadow: 0 1.83px 1px rgb(0 0 0 / 20%);
+}
+
+.e-dialog .e-dlg-header {
+    display: block;
+    font-size: 18px;
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 80%;
+}
+.e-control, .e-control [class^='e-'], .e-control [class*=' e-'] {
+    box-sizing: border-box;
+}
+.e-dlg-header, .e-dlg-header * {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 18px;
+    font-weight: normal;
+}
+.e-dialog .e-dlg-header-content {
+    border-radius: 1px 1px 0 0;
+    line-height: 30px;
+}
+
+.e-dialog .e-btn .e-btn-icon.e-icon-dlg-close {
+    font-size: 12px;
+    width: auto;
+}
+
+.e-dialog .e-icon-dlg-close {
+    opacity: initial;
+}
+.e-btn .e-btn-icon, .e-css.e-btn .e-btn-icon {
+    display: inline-block;
+    font-size: 12px;
+    margin-top: -2px;
+    vertical-align: middle;
+    width: 1em;
+}
+.e-control, .e-control [class^='e-'], .e-control [class*=' e-'] {
+    box-sizing: border-box;
+}
+.e-control, .e-control [class^='e-'], .e-control [class*=' e-'] {
+    box-sizing: border-box;
+}
+
+.e-dialog[_ngcontent-bwa-c57] .e-dlg-content[_ngcontent-bwa-c57] {
+    font-size: 15px;
+}
+.e-dialog .e-dlg-header-content + .e-dlg-content {
+    padding-top: 0;
+}
+.e-schedule-dialog .e-dlg-content {
+    padding-bottom: 12px;
+    position: relative;
+}
+.e-dialog .e-dlg-content {
+    padding: 18px;
+}
+.e-dialog .e-dlg-content {
+    display: block;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: normal;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.e-control, .e-control [class^='e-'], .e-control [class*=' e-'] {
+    box-sizing: border-box;
+}
+.e-control, .e-control [class^='e-'], .e-control [class*=' e-'] {
+    box-sizing: border-box;
+}
+.e-dlg-content {
+    background-color: #fff;
+}
+.e-dlg-content {
+    color: rgba(0, 0, 0, 0.87);
+}
+.bg-purple {
+    background-color: #4e85bb !important;
+}
+.btn-social-icon.btn-xs {
+    height: 35px;
+    width: 66px;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 17px;
+    text-align: center;
+}
+.btn-social-icon {
+    position: relative;
+    padding-left: 44px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 34px;
+    width: 34px;
+    padding: 0;
+}

@@ -1,0 +1,263 @@
+<head>
+    <style>
+        .e-dialog .e-dlg-content {
+            font-size: 15px;
+        }
+
+        span.b {
+            display: inline-block;
+            width: 100%;
+            /* height: 100%; */
+            padding: 5px;
+            border: 1px solid black;
+            background-color: white;
+        }
+
+        .modal-header {
+            background-color: #605ca8;
+        }
+
+        .modal-body {
+            padding-top: 8px;
+        }
+        
+    </style>
+  
+</head>
+
+<div>
+
+    <div id="content" style="min-height: 915px;">
+
+        <div class="container-fluid">
+            <div class="card col-mb-12">
+                <div class="card-header py-3" style="padding-top:5rem!important;padding-bottom:3rem!important">
+                    <h3 class="m-0 font-weight-bold text-primary">Student Master</h3>
+                    <div class="modal inmodal" id="studentModal" tabindex="-1" role="dialog" aria-hidden="true"
+                        style="display: none">
+                        <form #studentForm="ngForm" (ngSubmit)="onSubmit(studentdata)">
+                            <div class="e-dlg-container e-dlg-center-center e-schedule-dialog-container"
+                                style="z-index: 1003;display: flex;position: fixed;">
+                                <div id="_dialog_wrapper"
+                                    class="e-lib e-dialog e-control e-schedule-dialog e-dlg-modal e-popup e-popup-open"
+                                    role="dialog"
+                                    style="max-height: 400px; z-index: 1003; width: 1000px; left: 0px; top: 180px; min-height: 300px; height: 555px; position: relative;"
+                                    aria-labelledby="_dialog_wrapper_title"
+                                    aria-describedby="_dialog_wrapper_dialog-content" aria-modal="true" tabindex="-1">
+                                    <div class="e-dlg-header-content" style="background-color: #4e85bb;">
+                                        <button type="button"
+                                            class="e-dlg-closeicon-btn e-control e-btn e-lib e-flat e-icon-btn"
+                                            title="Close" (click)="closesubmitmodal()">
+                                            <span class="e-btn-icon e-icon-dlg-close e-icons"
+                                                style="color: white;"></span>
+                                        </button>
+                                        <div class="e-dlg-header" id="_dialog_wrapper_title">
+                                            <div class="e-title-text"
+                                                style="color:white;font-size:23px;padding-left:20px;"> Student Entry
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="e-dlg-content" id="_dialog_wrapper_dialog-content">
+                                        <div class="e-form-container">
+                                            <span class="b" style="margin-top: 10px;">
+                                                <div class="row">
+                                                    <input class="form-control" type="hidden" name="id"
+                                                       [(ngModel)]="studentdata.id"
+                                                        #id="ngModel" ngModel />
+                                                    <div class="col-md-2">Name<span class="text-danger">
+                                                            *</span></div>
+                                                    <div class="col-md-4">
+                                                        <input class="form-control" type="text" id="name" name="name"
+                                                            id="name" placeholder="Enter Name"
+                                                            [(ngModel)]="studentdata.name" #name="ngModel" required
+                                                            ngModel autofocus />
+                                                        <input class="form-control" type="hidden" name="id" id="id"
+                                                            [(ngModel)]="studentdata.id" #CustomerID="ngModel"
+                                                            ngModel />
+                                                        <span *ngIf="studentForm.submitted && name.invalid">
+                                                            <p *ngIf="name.errors.required" class="error_message"
+                                                                style="color: red">Name
+                                                                is required!</p>
+                                                        </span>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="row" style="margin-top: 4px;">
+                                                </div>
+
+                                            </span>
+                                            <span class="b">
+
+                                                <div class="row" style="margin-top: 4px;">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-2">Address</div>
+                                                    <div class="col-md-4">
+                                                        <textarea name="address" class="form-control" id="address"
+                                                            cols="30" rows="2" [(ngModel)]="studentdata.address"
+                                                            #address="ngModel" ngModel></textarea>
+                                                    </div>
+                                                    <div class="col-md-2">State<span
+                                                            class="text-danger"> *</span></div>
+                                                    <div class="col-md-4">
+                                                        <select class="form-control" id="stateid" name="stateid"
+                                                            #stateid="ngModel" ngModel [(ngModel)]="studentdata.stateid"
+                                                            (change)="fillCity(studentdata.stateid,1);"
+                                                            required>
+                                                            <option *ngFor="let state of states" [value]="state.value"
+                                                                [selected]="studentdata.stateid == state.value">{{
+                                                                state.text }}</option>
+                                                        </select>
+                                                        <span *ngIf="studentForm.submitted && studentdata.stateid== 0">
+                                                            <p *ngIf="studentdata.stateid== 0" class="error_message"
+                                                                style="color: red">State is required!</p>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row" style="margin-top: 4px;">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-2">City<span class="text-danger"> *</span></div>
+                                                    <div class="col-md-4">
+                                                        <select class="form-control" id=cityid name="cityid" ngModel
+                                                            #cityid="ngModel" [(ngModel)]="studentdata.cityid">
+                                                            <option *ngFor="let city of cities" [value]="city.value"
+                                                                [selected]="studentdata.cityid == city.value">{{
+                                                                city.text }}</option>
+                                                        </select>
+                                                        <span *ngIf="studentForm.submitted && studentdata.cityid== 0" >
+                                                            <p *ngIf="studentdata.cityid== 0" class="error_message" style="color: red">City is required!</p>
+                                                        </span> 
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span class="b">
+                                                <div class="row">
+                                                    <div class="col-md-2">Mobile No<span class="text-danger"> *</span>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input class="form-control" type="text" name="phnno" id="phnno"
+                                                            placeholder="Enter Mobile No" minlength="10" numbersOnly
+                                                            maxlength="10" [(ngModel)]="studentdata.phnno"
+                                                            #phnno="ngModel" ngModel required />
+                                                        <span *ngIf="studentForm.submitted && phnno.invalid">
+                                                            <p *ngIf="phnno.errors.required" class="error_message"
+                                                                style="color: red;">
+                                                                Contact / mobile no. is required
+                                                            </p>
+                                                            <p *ngIf="phnno.errors.minlength" class="error_message"
+                                                                style="color: red;">
+                                                                Contact / mobile no. must be of 10 digit
+                                                            </p>
+                                                            <p *ngIf="phnno.errors.maxlength" class="error_message"
+                                                                style="color: red;">
+                                                                Contact / mobile no. must be of maximun 10 digit
+                                                            </p>
+                                                        </span>
+
+                                                    </div>
+                                                    <div class="col-md-2">Email ID<span class="text-danger"> *</span>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input class="form-control" type="text" id="email" name="email"
+                                                            placeholder="Enter Email ID"
+                                                            pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+                                                            [(ngModel)]="studentdata.email" #email="ngModel" ngModel
+                                                            required />
+                                                        <span *ngIf="studentForm.submitted && email.invalid">
+                                                            <p *ngIf="email.errors.required" class="error_message"
+                                                                style="color: red;">
+                                                                Email id is required
+                                                            </p>
+                                                            <p *ngIf="email.errors.pattern" class="error_message"
+                                                                style="color: red;">
+                                                                Email id is invalid
+                                                            </p>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row" style="margin-top: 4px;">
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">Agree?</div>
+                                                    <div class="col-md-4">
+                                                        <input type="checkbox" id="Agree" name="Agree"
+                                                            (input)="getChkAgree($event)" />
+                                                    </div>
+                                                </div>
+                                            </span>
+
+
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <button class="btn btn-primary" type="submit" 
+                                                        id="btnsubmit" style="margin: 5px;">Submit</button>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <button class="btn btn-primary" type="button" style="margin: 5px;"
+                                                        (click)="closesubmitmodal();">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="pull-right" align="right">
+                        <button autofocus type="button" class="btn bg-purple pull-right"
+                            style="border-radius: 20px; outline: none;" data-toggle="modal" data-target="#modal-default"
+                            (click)="openmodal();">
+                            <i class="fa fa-plus-square">
+                                <b> Add New Record</b>
+                            </i>
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-striped dataTable" style="margin-top:20px" id="dataTable"
+                        width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="font-weight: bold;"> Name</th>
+                                <th style="font-weight: bold;">Email</th>
+                                <th style="font-weight: bold;">Phone No</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="gradeX" *ngFor="let stud of records; let i=index ">
+                                <td>{{ stud.name }}</td>
+                                <td>{{ stud.email }}</td>
+                                <td>{{ stud.phnno }}</td>
+                                <td style="text-align: center" width="5px">
+                                    <button type="button" class="btn btn-success btn-social-icon btn-xs"
+                                        style="border-radius: 20px;width: 55px;" data-toggle="modal"
+                                        data-target="#modal-default" (click)="onEdit(stud)">
+                                        Edit
+                                    </button>
+                                </td>
+                                <td style="text-align: center" width="5px">
+                                    <button type="button" class="btn btn-danger btn-social-icon btn-xs"
+                                        style="border-radius: 20px;width: 55px;" data-toggle="modal"
+                                        data-target="#modal-default" (click)="onDelete(stud)">
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
